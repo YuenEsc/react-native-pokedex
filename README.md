@@ -2,7 +2,7 @@
 This repository is the continuation of this repository
 https://github.com/YuenEsc/pokedex
 
-Also I took assets and color palette from this repository built with flutter and I tried to mix both the hooks of my previous repository and the UI code of this repo as this repository of flutter has JSON data instead of fetch an API:
+Also I took assets and color palette from this repository built with flutter and I tried to mix both the hooks of my previous repository and the UI implementation on Flutter of this repo as this repository of flutter has JSON data instead of fetch an API 
 
 https://github.com/cyberorbital/flutter_pokedex
 
