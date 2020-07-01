@@ -20,9 +20,7 @@ const PokemonListCard = ({pokemon}) => {
           </View>
           {pokemon.types.length === 2 && (
             <View style={[styles.PokemonTypeContainer, styles.TopMargin]}>
-              <Text style={[styles.PokemonType]}>
-                {pokemon.types[1]}
-              </Text>
+              <Text style={[styles.PokemonType]}>{pokemon.types[1]}</Text>
             </View>
           )}
         </View>
@@ -35,8 +33,8 @@ const styles = StyleSheet.create({
   MainContainer: {
     flex: 1,
     minHeight: 120,
-    marginHorizontal: 10,
-    marginVertical: 10,
+    marginHorizontal: 5,
+    marginVertical: 5,
     borderRadius: 16,
   },
   PokemonName: {
