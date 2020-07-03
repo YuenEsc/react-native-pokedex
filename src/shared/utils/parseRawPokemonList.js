@@ -10,7 +10,6 @@ const getTypesByPokemonId = async (pokemonId) => {
 };
 
 const parseRawPokemonList = async (rawPokemons) => {
-  console.log(rawPokemons);
   return Promise.all(
     rawPokemons.map(async (p, i) => {
       const pokemonId = getPokemonIdFromUrl(p.url);

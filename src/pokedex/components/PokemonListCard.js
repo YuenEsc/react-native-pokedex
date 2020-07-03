@@ -1,35 +1,61 @@
 import React from 'react';
-import {ImageBackground, View, StyleSheet, Image} from 'react-native';
+import {
+  ImageBackground,
+  View,
+  StyleSheet,
+  Image,
+  TouchableHighlight,
+} from 'react-native';
 import {Text} from 'react-native-elements';
+import {useSetPokemonId} from '../../shared/components/PokemonIdProvider';
+import {useSetPokemonColor} from '../../shared/components/PokemonColorProvider';
+import {useNavigation} from '@react-navigation/native';
 
 const pokeballImage = require('../../../assets/images/pokeball.png');
 
 const PokemonListCard = ({pokemon}) => {
+  const setPokemonId = useSetPokemonId();
+  const setPokemonColor = useSetPokemonColor();
+  const navigation = useNavigation();
   return (
-    <View style={[styles.MainContainer, {backgroundColor: pokemon.color}]}>
-      <ImageBackground
-        resizeMode="contain"
-        source={pokeballImage}
-        style={styles.Pokeball}
-        imageStyle={styles.PokeballImage}>
-        <View style={styles.Overlay}>
-          <Text style={styles.PokemonName}>{pokemon.name}</Text>
-          <Image source={{uri: pokemon.image}} style={styles.Pokemon} />
-          <View style={styles.PokemonTypeContainer}>
-            <Text style={styles.PokemonType}>{pokemon.types[0]}</Text>
-          </View>
-          {pokemon.types.length === 2 && (
-            <View style={[styles.PokemonTypeContainer, styles.TopMargin]}>
-              <Text style={[styles.PokemonType]}>{pokemon.types[1]}</Text>
+    <TouchableHighlight
+      activeOpacity={0.9}
+      underlayColor="#DDDDDD"
+      style={styles.Touchable}
+      onPress={() => {
+        setPokemonId(pokemon.id);
+        setPokemonColor(pokemon.color);
+        navigation.navigate('PokemonData');
+      }}>
+      <View style={[styles.MainContainer, {backgroundColor: pokemon.color}]}>
+        <ImageBackground
+          resizeMode="contain"
+          source={pokeballImage}
+          style={styles.Pokeball}
+          imageStyle={styles.PokeballImage}>
+          <View style={styles.Overlay}>
+            <Text style={styles.PokemonName}>{pokemon.name}</Text>
+            <Image source={{uri: pokemon.image}} style={styles.Pokemon} />
+            <View style={styles.PokemonTypeContainer}>
+              <Text style={styles.PokemonType}>{pokemon.types[0]}</Text>
             </View>
-          )}
-        </View>
-      </ImageBackground>
-    </View>
+            {pokemon.types.length === 2 && (
+              <View style={[styles.PokemonTypeContainer, styles.TopMargin]}>
+                <Text style={[styles.PokemonType]}>{pokemon.types[1]}</Text>
+              </View>
+            )}
+          </View>
+        </ImageBackground>
+      </View>
+    </TouchableHighlight>
   );
 };
 
 const styles = StyleSheet.create({
+  Touchable: {
+    flex: 1,
+    borderRadius: 16,
+  },
   MainContainer: {
     flex: 1,
     minHeight: 120,
