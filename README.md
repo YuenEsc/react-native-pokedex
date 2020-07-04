@@ -8,6 +8,8 @@ https://github.com/cyberorbital/flutter_pokedex
 
 The original design belongs to [Saepul Nahwan](https://dribbble.com/saepulnahwan23)
 
+![Version 2](https://media.giphy.com/media/QuaPEsYfTolNi3eWyo/giphy.gif)
+
 ## release sample
 
 https://drive.google.com/file/d/1U7-XOdkIbbQ92sRKTi2lfT6ytqQ5B4n4/view?usp=sharing
